@@ -205,6 +205,8 @@ Receive notifications in email
 </p>
 </div>
 
+# `builder.r-hub.io` { style="font-size: 65%" } 
+
 # `github.com/` { style="font-size: 65%" } <br> `r-hub/feedback` { style="font-size: 65%" }
 
 # Questions
