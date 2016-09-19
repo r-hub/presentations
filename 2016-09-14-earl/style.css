@@ -1,0 +1,8 @@
+.nonum.slide:after {
+    background: none
+}
+
+.slide h2 {
+    font-size: 180%;
+    margin-bottom: 40px;
+}
