@@ -1,0 +1,16 @@
+.nonum.slide:after {
+    background: none;
+}
+
+.slide h2 {
+    font-size: 180%;
+    margin-bottom: 40px;
+}
+
+.small {
+    font-size: 56%;
+}
+
+.slide .shout {
+    font-size: 140px;
+}
