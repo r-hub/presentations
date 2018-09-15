@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R-hub</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="r-hub_files/shower-ribbon/package/styles/screen-16x10.css">
+  <link rel="stylesheet" href="r-hub_files/rmdshower/style-common.css">
+  <link rel="stylesheet" href="r-hub_files/rmdshower/style-ribbon.css">
+  <link rel="stylesheet" href="r-hub_files/shower-ribbon/style-override.css">
+  
+  
+  
+            <link rel="stylesheet" href="style.css"/>
+      
+  
+</head>
+
+<body class="shower list">
+
+  <header class="caption">
+    <h1>R-hub</h1>
+    <p>Gábor Csárdi</p>
+  </header>
+
+  
+  
+<section id="section" class="slide level2 nonum">
+<h2></h2>
+<style type="text/css">
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+@import url("https://cdn.rawgit.com/gaborcsardi/r-font/master/rlogo.css");
+</style>
+<h2 style="font-size:400%; margin-top:-80px;">
+R-hub
+</h2>
+<h2 style="padding-top:26.5%;">
+Gábor Csárdi
+</h2>
+<p style="line-height: 1">
+csardi.gabor@<span></span>gmail.com
+</p>
+<p><img src="rc.png" class="cover" style="width:40%;margin-left:20%;margin-top:150px;"></p>
+</section>
+<section id="outline" class="slide level2 nonum">
+<h2>Outline</h2>
+<ul>
+<li>The R Consortium</li>
+<li>R-hub Architecture</li>
+<li>Demo, website</li>
+<li>Demo, rhub R package</li>
+<li>Local debugging with Docker</li>
+<li>Package and system dependencies</li>
+<li>Checks for compiled code</li>
+</ul>
+<p><img src="r-hub-2.png" class="cover" style="width:40%;margin-left:20%;margin-top:-80px;"> <img src="rc.png" class="cover" style="width:40%;margin-left:20%;margin-top:150px;"></p>
+</section>
+<section id="the-r-consortium" class="slide level2">
+<h2>The R Consortium</h2>
+<blockquote>
+<p>The central mission of the R Consortium is to work with and provide support to the R Foundation and to the key organizations developing, maintaining, distributing and using R software through the identification, development and implementation of infrastructure projects.</p>
+</blockquote>
+<p><a href="https://www.r-consortium.org" class="uri">https://www.r-consortium.org</a></p>
+</section>
+<section id="the-r-consortium-1" class="slide level2">
+<h2>The R Consortium</h2>
+<p>Members:</p>
+<p>· R Foundation · IBM · Microsoft · Gordon and Betty Moore Foundation · RStudio · Tibco · Alteryx · DataCamp · esri · Google · Mango Solutions · Oracle · ProCogia</p>
+<p><a href="https://www.r-consortium.org/members" class="uri">https://www.r-consortium.org/members</a></p>
+</section>
+<section id="r-hub" class="slide level2">
+<h2>R-hub</h2>
+<h3 id="collection-of-services-to-help-r-package-development.">Collection of services to help R package development.</h3>
+<h3 id="goals">Goals:</h3>
+<ul>
+<li>Ease all steps the R package development process, creating a package, building binaries and continuous integration, publishing, distributing and maintaining it.</li>
+<li>Make these services free for all members of the community.</li>
+<li>Allow community contributions to R-hub itself.</li>
+<li>Cross platform package building and checking service.</li>
+</ul>
+</section>
+<section id="package-building-and-checking-service" class="slide level2">
+<h2>Package building and checking service</h2>
+<p><span class="fa fa-check fa-fw" data-aria-hidden="true"></span>   Web submission, email notification, <a href="https://builder.r-hub.io" class="uri">https://builder.r-hub.io</a></p>
+<p><span class="fa fa-check fa-fw" data-aria-hidden="true"></span>   API, R package client, <a href="https://github.com/r-hub/rhub" class="uri">https://github.com/r-hub/rhub</a></p>
+<p><span class="fa fa-check fa-fw" data-aria-hidden="true"></span>   Multi-platform: Linux, Windows, macOS, Solaris</p>
+<p><span class="fa fa-check fa-fw" data-aria-hidden="true"></span>   Flexible dependency support</p>
+<p><span class="fa fa-check fa-fw" data-aria-hidden="true"></span>   Binary packages</p>
+<p><span class="fa fa-check fa-fw" data-aria-hidden="true"></span>   Private and secure (usual disclaimer applies)</p>
+</section>
+<section id="section-1" class="slide level2 nonum">
+<h2></h2>
+<h2 class="shout">
+Architecture
+</h2>
+</section>
+<section id="section-2" class="slide level2 nonum">
+<h2></h2>
+<p><img src="r-hub.svg" class="cover"></p>
+</section>
+<section id="section-3" class="slide level2 nonum">
+<h2></h2>
+<h2 class="shout">
+Demo
+</h2>
+</section>
+<section id="the-rhub-r-package" class="slide level2">
+<h2>The rhub R package</h2>
+<pre><code>platforms()</code></pre>
+<pre><code>validate_email()
+list_validated_emails()</code></pre>
+<pre><code>check()
+check_for_cran()
+check_*()
+check(email = ...)</code></pre>
+</section>
+<section id="the-rhub-r-package-1" class="slide level2">
+<h2>The rhub R package</h2>
+<pre><code>cx &lt;- last_check()
+cx &lt;- list_my_checks()
+cx &lt;- list_my_checks(package = ...)
+cx$details()
+cx$livelog()
+cx$web()</code></pre>
+</section>
+<section id="section-4" class="slide level2 nonum">
+<h2></h2>
+<h2 class="shout">
+Local debugging with Docker
+</h2>
+</section>
+<section id="local-debugging-with-docker" class="slide level2">
+<h2>Local debugging with Docker</h2>
+<p>Docker image list: <a href="https://hub.docker.com/u/rhub/" class="uri">https://hub.docker.com/u/rhub/</a></p>
+<p>Get the container:</p>
+<pre><code>docker pull rhub/fedora-clang-devel</code></pre>
+<p>Run it:</p>
+<pre><code>docker run -ti rhub/fedora-clang-devel bash</code></pre>
+</section>
+<section id="local-debugging-with-docker-1" class="slide level2">
+<h2>Local debugging with Docker</h2>
+<p>Get the R package, dependencies:</p>
+<pre><code>## In the container:
+dnf install git openssl-devel libxml2-devel
+git clone https://github.com/rladies/praise.git
+cd praise
+echo &#39;options(repos=c(CRAN=&quot;https://cloud.r-project.org&quot;))&#39; &gt; ~/.Rprofile
+/opt/R-devel/bin/R -e &#39;install.packages(&quot;devtools&quot;)&#39;
+/opt/R-devel/bin/R -e &#39;devtools::install_dev_deps()&#39;
+## Quit, and docker commit ...</code></pre>
+<p>Run package check:</p>
+<pre><code>/opt/R-devel/bin/R -e &#39;devtools::check()&#39;</code></pre>
+</section>
+<section id="section-5" class="slide level2 nonum">
+<h2></h2>
+<h2 class="shout">
+Package dependencies
+</h2>
+</section>
+<section id="package-dependencies" class="slide level2">
+<h2>Package dependencies</h2>
+<ul>
+<li>CRAN / BioC packages are automatically supported</li>
+<li>GitHub (or other) packages need a <code>Remotes</code> field in <code>DESCRIPTION</code></li>
+</ul>
+<pre><code>Package: revdepcheck
+Title: Automated Reverse Dependency Checking
+[...]
+Imports: 
+    assertthat,
+    callr,
+[...]
+    progress,
+    yaml
+Remotes: 
+    r-lib/callr,
+    r-lib/progress,
+[...]</code></pre>
+</section>
+<section id="section-6" class="slide level2 nonum">
+<h2></h2>
+<h2 class="shout">
+System dependencies
+</h2>
+</section>
+<section id="system-dependencies" class="slide level2">
+<h2>System dependencies</h2>
+<ul>
+<li><code>SystemRequirements</code> field</li>
+<li>sysreqsdb: <a href="https://github.com/r-hub/sysreqsdb" class="uri">https://github.com/r-hub/sysreqsdb</a></li>
+<li>sysreqs API: <a href="https://sysreqs.r-hub.io/" class="uri">https://sysreqs.r-hub.io/</a></li>
+</ul>
+</section>
+<section id="system-dependencies-new-entries-via-a-pull-request" class="slide level2">
+<h2>System dependencies, new entries, via a pull request</h2>
+<pre><code>{
+  &quot;libjq&quot;: {
+    &quot;sysreqs&quot;: &quot;libjq&quot;,
+    &quot;platforms&quot;: {
+      &quot;DEB&quot;: &quot;libjq-dev&quot;,
+      &quot;RPM&quot;: &quot;jq-devel&quot;,
+      &quot;OSX/brew&quot;: &quot;jq&quot;
+    }
+  }
+}</code></pre>
+</section>
+<section id="system-dependencies-install-scripts" class="slide level2">
+<h2>System dependencies, install scripts</h2>
+<pre><code>{
+  &quot;protobuf3&quot;: {
+    &quot;sysreqs&quot;: [ &quot;protobuf3&quot; ],
+    &quot;platforms&quot;: {
+      &quot;DEB&quot;: { &quot;script&quot;: &quot;protobuf-installer.sh&quot; },
+      &quot;RPM&quot;: { &quot;script&quot;: &quot;protobuf-installer.sh&quot; },
+      &quot;OSX/brew&quot;: &quot;protobuf&quot;
+    }
+  }
+}</code></pre>
+</section>
+<section id="section-7" class="slide level2 nonum">
+<h2></h2>
+<h2 class="shout">
+Checks for compiled code
+</h2>
+</section>
+<section id="checks-for-compiled-code" class="slide level2">
+<h2>Checks for compiled code</h2>
+<ul>
+<li>valgrind, to detect memory errors: <code>rhub::check_with_valgrind()</code></li>
+<li>address sanitizers: <code>rhub::check_with_sanitizers()</code></li>
+<li><code>PROTECT()</code> errors: <code>rhub::check(platform = &quot;ubuntu-rchk&quot;)</code></li>
+</ul>
+</section>
+<section id="ongoing-work" class="slide level2">
+<h2>Ongoing work</h2>
+<ul>
+<li>Better support for local debugging</li>
+<li>CI via GitHub</li>
+<li>Sysreqs support on macOS, Windows</li>
+<li>Package distribution</li>
+</ul>
+</section>
+<section id="links" class="slide level2">
+<h2>Links</h2>
+<ul>
+<li><a href="https://builder.r-hub.io" class="uri">https://builder.r-hub.io</a></li>
+<li><a href="https://github.com/r-hub/rhub" class="uri">https://github.com/r-hub/rhub</a></li>
+<li><a href="https://github.com/r-hub/rhub/issues" class="uri">https://github.com/r-hub/rhub/issues</a></li>
+<li><a href="https://www.r-consortium.org" class="uri">https://www.r-consortium.org</a></li>
+</ul>
+<p><img src="r-hub-2.png" class="cover" style="width:40%;margin-left:20%;margin-top:-80px;"> <img src="rc.png" class="cover" style="width:40%;margin-left:20%;margin-top:150px;"></p>
+</section>
+
+  <!--
+  To hide progress bar from entire presentation
+  just remove “progress” element.
+  -->
+  <!-- <div class="progress"></div> -->
+  <script src="r-hub_files/rmdshower/node_modules/shower/node_modules/shower-core/shower.min.js"></script>
+  <!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+  <!-- Photos by John Carey, fiftyfootshadows.net -->
+
+  
+  
+</body>
+</html>
